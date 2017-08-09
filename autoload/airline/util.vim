@@ -104,13 +104,13 @@ if has('nvim')
     \ }
     let l:id = jobstart(a:cmd, l:config)
     if l:id < 1
-      return system(a:cmd)
+      return vimproc#system(a:cmd)
     endif
     call jobwait([l:id])
     return l:config.buf
   endfunction
 else
   function! airline#util#system(cmd)
-    return system(a:cmd)
+    return vimproc#system(a:cmd)
   endfunction
 endif

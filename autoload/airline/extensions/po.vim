@@ -73,7 +73,7 @@ function! airline#extensions#po#stats()
   if s:has_async
     call s:get_msgfmt_stat_async(cmd, expand('%:p'))
   else
-    let airline_po_stats = system(cmd. shellescape(expand('%:p')))
+    let airline_po_stats = vimproc#system(cmd. shellescape(expand('%:p')))
     if v:shell_error
       return ''
     endif
